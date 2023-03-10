@@ -12,7 +12,7 @@ from ads.models import Comment
 # TODO Сериалайзеры. Предлагаем Вам такую структуру, однако вы вправе использовать свою
 
 class CommentSerializer(serializers.ModelSerializer):
-    pk = serializers.IntegerField(source="id")
+    pk = serializers.IntegerField(source="id", required=False)
     ad_id = serializers.IntegerField(source="ad.id", required=False)
     author_id = serializers.IntegerField(source="ad.author.id", required=False)
     author_last_name = serializers.CharField(source="ad.author.last_name", required=False)
