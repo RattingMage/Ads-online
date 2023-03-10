@@ -36,4 +36,4 @@ class CommentViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user, ad=self.kwargs.get("ad_pk"))
 
     def get_queryset(self):
-        return Comment.objects.filter(ad=self.kwargs.get("pk"))
+        return Comment.objects.filter(ad=self.kwargs.get("ad_pk"))
