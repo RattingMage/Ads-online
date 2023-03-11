@@ -2,20 +2,15 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from users.managers import UserManager
-from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import gettext_lazy as _
 
 
 class UserRoles(models.TextChoices):
-    # TODO закончите enum-класс для пользователя
     ADMIN = 'ADMIN', _("admin")
     USER = 'USER', _("user")
 
 
 class User(AbstractBaseUser):
-    # TODO переопределение пользователя.
-    # TODO подробности также можно поискать в рекоммендациях к проекту
-
     email = models.EmailField(max_length=254, unique=True)
     first_name = models.CharField(max_length=64, blank=True)
     last_name = models.CharField(max_length=64, blank=True)

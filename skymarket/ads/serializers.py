@@ -1,15 +1,8 @@
 from rest_framework import serializers
 
 from ads.models import Ad
-
-from users.serializers import AuthorSerializer
-
-from users.models import User
-
 from ads.models import Comment
 
-
-# TODO Сериалайзеры. Предлагаем Вам такую структуру, однако вы вправе использовать свою
 
 class CommentSerializer(serializers.ModelSerializer):
     pk = serializers.IntegerField(source="id", required=False)

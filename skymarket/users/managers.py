@@ -1,10 +1,9 @@
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import (
     BaseUserManager
 )
 
 
-# TODO здесь должен быть менеджер для модели Юзера.
-# TODO Поищите эту информацию в рекомендациях к проекту
 class UserManager(BaseUserManager):
     def create_user(self, email, first_name, last_name, phone, password=None, role="USER"):
         if not email:
@@ -16,7 +15,7 @@ class UserManager(BaseUserManager):
             phone=phone,
             role=role
         )
-        user.set_password(password)
+        user.password = make_password(password)
         user.save(using=self._db)
 
         return user
